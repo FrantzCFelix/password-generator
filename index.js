@@ -22,7 +22,7 @@ while (passwordLength !== null) {
         alert("Please enter a number between 8 and 128");
     }
 
-    if (passwordLength > 8 || passwordLength < 128) {
+    if (passwordLength >= 8 && passwordLength <= 128) {
         break;
     }
 
@@ -58,11 +58,37 @@ while (passwordCriteria !== null) {
         passwordCriteriaBoolUpper === true) {
         break;
     }
-    else
-    {
-        alert("Enter a valid input")
+    else {
+        alert("Enter a valid input");
     }
 
+
+}
+
+generatePassword(passwordLength, passwordCriteriaBoolSpecial, passwordCriteriaBoolNumerical, passwordCriteriaBoolLower, passwordCriteriaBoolUpper);
+
+function generatePassword(length, specialCharBool, numericalCharBool, lowerCharBool, upperCharBool) {
+    var passwordArr = [];
+    var availableCharSetArr = [];
+    var specialCharSet = [' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'];
+    var numericalCharSet = ['1234567890'];
+    var lowerCharSet = ['abcdefghijklmnopqrstuvwyxz'];
+    var upperCharSet = ['ABCDEFGHIJKLMNOPQRSTUVWYXZ'];
+
+    if (specialCharBool === true) {
+        availableCharSetArr = availableCharSetArr.concat(specialCharSet);
+    }
+    if (numericalCharBool === true) {
+        availableCharSetArr = availableCharSetArr.concat(numericalCharSet);
+    }
+    if (lowerCharBool === true) {
+        availableCharSetArr = availableCharSetArr.concat(lowerCharSet);
+    }
+    if (upperCharBool === true) {
+        availableCharSetArr = availableCharSetArr.concat(upperCharSet);
+    }
+    availableCharSetArr = availableCharSetArr.join('');
+    console.log(availableCharSetArr);
 
 }
 
