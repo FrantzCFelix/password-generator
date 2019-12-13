@@ -89,27 +89,48 @@ function generatePassword(length, specialCharBool, numericalCharBool, lowerCharB
     if (upperCharBool === true) {
         availableCharSetArr = availableCharSetArr.concat(upperCharSet);
     }
-    
+
     availableCharSetArr = availableCharSetArr.join('');
     availableCharSetString = availableCharSetArr.toString();
-   
-   
 
-   for(var i = 0; i < length; i++)
-   {
-    var randomNum = Math.floor((Math.random() * availableCharSetArr.length) + 1)
-      
-    passwordArr.push(availableCharSetString.charAt(randomNum));
-    // passwordArr = availableCharSetArr[0].charAt(randomNum);
-   }
-   passwordArr = passwordArr.join("");
-   passwordString = passwordArr.toString(); 
-   console.log(passwordString);
 
-   alert("Your password is " + passwordString);
 
-  // console.log(availableCharSetArr);
-  // console.log(availableCharSetArr.length);
+    for (var i = 0; i < length; i++) {
+        var randomNum = Math.floor((Math.random() * availableCharSetArr.length) + 1)
+
+        passwordArr.push(availableCharSetString.charAt(randomNum));
+
+    }
+    if (specialCharBool === true) {
+        var randomNumPassword = Math.floor((Math.random() * passwordArr.length) + 1);
+        var randomNumCondition = Math.floor((Math.random() * specialCharSet.length) + 1);
+        passwordArr[randomNumPassword] = specialCharSet[randomNumCondition];
+    }
+    if (numericalCharBool === true) {
+        var randomNumPassword = Math.floor((Math.random() * passwordArr.length) + 1);
+        var randomNumCondition = Math.floor((Math.random() * numericalCharSet.length) + 1);
+        passwordArr[randomNumPassword] = numericalCharSet[randomNumCondition];
+
+    }
+    if (upperCharBool === true) {
+        var randomNumPassword = Math.floor((Math.random() * passwordArr.length) + 1);
+        var randomNumCondition = Math.floor((Math.random() * upperCharSet.length) + 1);
+        passwordArr[randomNumPassword] = upperCharSet[randomNumCondition];
+
+    }
+    if (lowerCharBool === true) {
+        var randomNumPassword = Math.floor((Math.random() * passwordArr.length) + 1);
+        var randomNumCondition = Math.floor((Math.random() * lowerCharSet.length) + 1);
+        passwordArr[randomNumPassword] = lowerCharSet[randomNumCondition];
+
+    }
+
+    passwordArr = passwordArr.join("");
+    passwordString = passwordArr.toString();
+    console.log(passwordString);
+    alert("Your password is " + passwordString);
+
+
 
 
 
