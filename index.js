@@ -70,6 +70,7 @@ generatePassword(passwordLength, passwordCriteriaBoolSpecial, passwordCriteriaBo
 function generatePassword(length, specialCharBool, numericalCharBool, lowerCharBool, upperCharBool) {
     var passwordArr = [];
     var availableCharSetArr = [];
+    var availableCharSetString;
     var specialCharSet = [' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'];
     var numericalCharSet = ['1234567890'];
     var lowerCharSet = ['abcdefghijklmnopqrstuvwyxz'];
@@ -87,8 +88,24 @@ function generatePassword(length, specialCharBool, numericalCharBool, lowerCharB
     if (upperCharBool === true) {
         availableCharSetArr = availableCharSetArr.concat(upperCharSet);
     }
+    
     availableCharSetArr = availableCharSetArr.join('');
-    console.log(availableCharSetArr);
+    availableCharSetString = availableCharSetArr.toString();
+   
+   
+
+   for(var i = 0; i < length; i++)
+   {
+    var randomNum = Math.floor((Math.random() * availableCharSetArr.length) + 1)
+   // passwordArr = availableCharSetArr[0].charAt(randomNum);
+    
+    console.log(availableCharSetString.charAt(randomNum));
+   }
+  // console.log(availableCharSetArr);
+  // console.log(availableCharSetArr.length);
+
+
+
 
 }
 
