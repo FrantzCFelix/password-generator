@@ -69,6 +69,7 @@ generatePassword(passwordLength, passwordCriteriaBoolSpecial, passwordCriteriaBo
 
 function generatePassword(length, specialCharBool, numericalCharBool, lowerCharBool, upperCharBool) {
     var passwordArr = [];
+    var passwordString;
     var availableCharSetArr = [];
     var availableCharSetString;
     var specialCharSet = [' !"#$%&()*+,-./:;<=>?@[\]^_`{|}~'];
@@ -97,10 +98,16 @@ function generatePassword(length, specialCharBool, numericalCharBool, lowerCharB
    for(var i = 0; i < length; i++)
    {
     var randomNum = Math.floor((Math.random() * availableCharSetArr.length) + 1)
-   // passwordArr = availableCharSetArr[0].charAt(randomNum);
-    
-    console.log(availableCharSetString.charAt(randomNum));
+      
+    passwordArr.push(availableCharSetString.charAt(randomNum));
+    // passwordArr = availableCharSetArr[0].charAt(randomNum);
    }
+   passwordArr = passwordArr.join("");
+   passwordString = passwordArr.toString(); 
+   console.log(passwordString);
+
+   alert("Your password is " + passwordString);
+
   // console.log(availableCharSetArr);
   // console.log(availableCharSetArr.length);
 
